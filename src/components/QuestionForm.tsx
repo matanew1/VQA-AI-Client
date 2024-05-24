@@ -24,7 +24,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
           required
           fullWidth
           InputProps={{
-            style: { fontWeight: "bold", backgroundColor: "#40f0f0", color: "#00001f" },
+            style: { fontWeight: "bold" }, // Add fontWeight style
             endAdornment: (
               <InputAdornment position="end">
                 <IconButton type="submit">

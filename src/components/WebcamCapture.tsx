@@ -7,7 +7,10 @@ interface WebcamCaptureProps {
   canvasRef: React.RefObject<HTMLCanvasElement>;
 }
 
-const WebcamCapture: React.FC<WebcamCaptureProps> = ({ videoRef, canvasRef }) => {
+const WebcamCapture: React.FC<WebcamCaptureProps> = ({
+  videoRef,
+  canvasRef,
+}) => {
   const [face, setFace] = React.useState(true);
   useEffect(() => {
     const constraints = {
@@ -18,15 +21,18 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({ videoRef, canvasRef }) =>
     // Check if getUserMedia is supported and ensure it's the correct format for iOS Safari
     const getUserMedia = (constraints: MediaStreamConstraints) => {
       const n = navigator as any;
-      return (n.mediaDevices && n.mediaDevices.getUserMedia) 
+      return n.mediaDevices && n.mediaDevices.getUserMedia
         ? n.mediaDevices.getUserMedia(constraints)
         : new Promise((resolve, reject) => {
-          const getWebcam = n.getUserMedia || n.webkitGetUserMedia || n.mozGetUserMedia;
-          if (!getWebcam) {
-            reject(new Error("getUserMedia is not implemented in this browser"));
-          }
-          getWebcam.call(n, constraints, resolve, reject);
-        });
+            const getWebcam =
+              n.getUserMedia || n.webkitGetUserMedia || n.mozGetUserMedia;
+            if (!getWebcam) {
+              reject(
+                new Error("getUserMedia is not implemented in this browser")
+              );
+            }
+            getWebcam.call(n, constraints, resolve, reject);
+          });
     };
 
     getUserMedia(constraints)
@@ -45,7 +51,7 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({ videoRef, canvasRef }) =>
       <IconButton
         color="default"
         aria-label="upload picture"
-        style={{ position: "absolute", top: 0, left: 0 , zIndex: 1 }}
+        style={{ position: "absolute", top: 0, left: 0, zIndex: 1 }}
         onClick={() => setFace(!face)}
       >
         <CameraAltIcon />
@@ -60,6 +66,8 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({ videoRef, canvasRef }) =>
           borderColor: "#40E0D0",
           borderWidth: "2px",
           borderStyle: "solid",
+          width: "100%",
+          height: "auto",
         }}
       />
       <canvas ref={canvasRef} style={{ display: "none" }} />
