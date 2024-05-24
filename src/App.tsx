@@ -54,34 +54,22 @@ const App: React.FC = () => {
   };
 
   return (
-    <Grid container direction="column" alignItems="center" spacing={6}>
-      <Grid item>
+    <Grid container direction="column" spacing={2}>
+      <Grid item xs={12}>
         <Header />
       </Grid>
-      {/* Content */}
-      <Grid
-        item
-        container
-        direction="column"
-        xs={12}
-        sm={10}
-        md={8}
-        lg={6}
-        xl={4}
-      >
-        <Grid item xs={1} sm={1} md={1} lg={8} xl={1}>
-          <WebcamCapture videoRef={videoRef} canvasRef={canvasRef} />
-        </Grid>
-        <Grid item xs={12} sm={10} md={8} lg={6} xl={4}>
-          <QuestionForm
-            question={state.question}
-            handleQuestionChange={handleQuestionChange}
-            handleSubmit={handleSubmit}
-          />
-        </Grid>
-        <Grid item xs={12} sm={10} md={8} lg={6} xl={4}>
-          <AnswerDisplay answer={state.answer} />
-        </Grid>
+      <Grid item xs={12} sm={8} md={6} lg={4}>
+        <WebcamCapture videoRef={videoRef} canvasRef={canvasRef} />
+      </Grid>
+      <Grid item xs={12} sm={8} md={6} lg={4}>
+        <QuestionForm
+          question={state.question}
+          handleQuestionChange={handleQuestionChange}
+          handleSubmit={handleSubmit}
+        />
+      </Grid>
+      <Grid item xs={12} sm={8} md={6} lg={4}>
+        <AnswerDisplay answer={state.answer} />
       </Grid>
     </Grid>
   );
