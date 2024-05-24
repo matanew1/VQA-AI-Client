@@ -20,10 +20,11 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
           label="Question"
           value={question}
           onChange={handleQuestionChange}
-          variant="outlined"
+          variant="filled" // Change variant to "filled"
           required
           fullWidth
           InputProps={{
+            style: { fontWeight: "bold", backgroundColor: "#40f0f0", color: "#00001f" },
             endAdornment: (
               <InputAdornment position="end">
                 <IconButton type="submit">

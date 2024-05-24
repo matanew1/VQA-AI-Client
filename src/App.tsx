@@ -54,10 +54,10 @@ const App: React.FC = () => {
   };
 
   return (
-    <Grid container direction="column" spacing={2}>
-      <Grid item xs={12}>
+    <Grid container direction="column">
+      <Grid item xs={12} sm={8} md={6} lg={4}>
         <Header />
-      </Grid>
+      </Grid><br/><br/><br/><br/>
       <Grid item xs={12} sm={8} md={6} lg={4}>
         <WebcamCapture videoRef={videoRef} canvasRef={canvasRef} />
       </Grid>

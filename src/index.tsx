@@ -8,7 +8,7 @@ import { GlobalStyles } from "@mui/system";
 const bgTheme = createTheme({
   palette: {
     background: {
-      default: "linear-gradient(45deg, #000000 1%, #40E0D0 50%, #000000 99%)",
+      default: "linear-gradient(45deg, #00001f 1%, #40E0D0 50%, #00001f 99%)",
     },
   },
 });

@@ -55,11 +55,9 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({ videoRef, canvasRef }) =>
         muted
         style={{
           borderRadius: "12px",
-          borderColor: "black",
-          borderWidth: "5px",
+          borderColor: "#40E0D0",
+          borderWidth: "2px",
           borderStyle: "solid",
-          width: "100%",
-          height: "100%",
         }}
       />
       <canvas ref={canvasRef} style={{ display: "none" }} />
