@@ -8,10 +8,11 @@ interface WebcamCaptureProps {
 }
 
 const WebcamCapture: React.FC<WebcamCaptureProps> = ({ videoRef, canvasRef }) => {
+  const [face, setFace] = React.useState(true);
   useEffect(() => {
     const constraints = {
       audio: true,
-      video: true,
+      video: face,
     };
 
     // Check if getUserMedia is supported and ensure it's the correct format for iOS Safari
@@ -37,14 +38,15 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({ videoRef, canvasRef }) =>
       .catch((error: Error) => {
         console.error("Error accessing media devices.", error);
       });
-  }, [videoRef]);
+  }, [videoRef, face]);
 
   return (
     <Box position="relative">
       <IconButton
         color="default"
         aria-label="upload picture"
-        style={{ position: "absolute", top: 0, left: 0 }}
+        style={{ position: "absolute", top: 0, left: 0 , zIndex: 1 }}
+        onClick={() => setFace(!face)}
       >
         <CameraAltIcon />
       </IconButton>
