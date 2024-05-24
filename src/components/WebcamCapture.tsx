@@ -11,7 +11,7 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({ videoRef, canvasRef }) =>
   useEffect(() => {
     const constraints = {
       audio: true,
-      video: { facingMode: "environment" },
+      video: true,
     };
 
     // Check if getUserMedia is supported and ensure it's the correct format for iOS Safari
