@@ -67,7 +67,7 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({
           borderWidth: "2px",
           borderStyle: "solid",
           width: "100%",
-          height: "50%", // Adjust the height here
+          height: "auto", // Adjust the height here
         }}
       />
       <canvas ref={canvasRef} style={{ display: "none" }} />
