@@ -47,7 +47,7 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({
   }, [videoRef, face]);
 
   return (
-    <Box position="relative"  style={{ height: '500px', overflow: 'hidden' }}>
+    <Box position="relative">
       <IconButton
         color="default"
         aria-label="upload picture"
